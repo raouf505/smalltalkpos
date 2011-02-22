@@ -5,21 +5,23 @@ package shtrihfrapplet;
  * @author assargadon
  */
 
-//import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 
-//import java.io.FileDescriptor;
-//import java.io.IOException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 
 public class ShtrihFRCommunicator {
+
+    String portName;
+    int baudRate;
+    int databits = SerialPort.DATABITS_8;
+    int stopbits = SerialPort.STOPBITS_1;
+    int parity = SerialPort.PARITY_NONE;
+
 
     public static final byte STX   = 2;
     public static final byte ENQ   = 5;
@@ -138,8 +140,8 @@ public class ShtrihFRCommunicator {
         buffer[len+1]=checksum;
         writeByte(ACK);
 
-        res = new int[len+2];
-        System.arraycopy(buffer, 0, res, 0, len+2);
+        res = new int[len];
+        System.arraycopy(buffer, 1, res, 0, len); //Strip out technical info (lenght & checksum)
         return res;
     }
 
@@ -162,7 +164,7 @@ public class ShtrihFRCommunicator {
 
         try {
 
-        if (connect("/dev/ttyUSB0") == 0){
+        if (connect() == 0){
              System.out.println("Failed to open port");
              return null; //error while opening
         }
@@ -174,7 +176,8 @@ public class ShtrihFRCommunicator {
             switch (readByteWithTimeout(1000)){
 
                 case -1:
-                    System.out.println("No connect or device in process of transmitting answer on previous message");
+                    System.out.println("No connection: timeout on ENQ");
+                    disconnect();
                     return null;
 
                 case NAK:
@@ -185,13 +188,15 @@ public class ShtrihFRCommunicator {
                         int confirm=readByteWithTimeout(1000);
                         if (confirm==ACK) break;
                         if (confirm==-1){
-                            System.out.println("Timeout on receiving confirmation from FR");
+                            System.out.println("No connection: timeout on receiving confirmation from FR");
+                            disconnect();
                             return null;
                         }
                         
                     }
                     if(i>=10){
-                        System.out.println("No receiving confirmation from FR");
+                        System.out.println("No connection: no receiving confirmation from FR");
+                        disconnect();
                         return null;
                     }else{answer_flag=true;}
                     //MIND: no break, continue execution of next case
@@ -211,7 +216,8 @@ public class ShtrihFRCommunicator {
                                 continue main; //We have answer, but it's answer to some other, not our message, for example by abandoned previous attempt
                     }
                     if(i>=10){
-                        System.out.println("Can't receive answer from FR");
+                        System.out.println("No connection: can't receive answer from FR");
+                        disconnect();
                         return null;
                     }
 
@@ -226,10 +232,9 @@ public class ShtrihFRCommunicator {
             return null;
         }
         return res;
-        //return null;
     }
 
-    int connect ( String portName ) throws Exception
+    int connect () throws Exception
     {
         CommPortIdentifier commPortIdentifier;
         commPortIdentifier = CommPortIdentifier.getPortIdentifier(portName);
@@ -238,7 +243,7 @@ public class ShtrihFRCommunicator {
         port = (SerialPort) commPortIdentifier.open("ShtrihFR", OPEN_PORT_TIMEOUT);
         //Timeout should be managed this or that way
 
-        port.setSerialPortParams(115200, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+        port.setSerialPortParams(baudRate, databits, stopbits, parity);
 
         in = port.getInputStream();
         out = port.getOutputStream();

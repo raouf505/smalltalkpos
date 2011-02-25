@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp href="nativeLibsForRXTXComm.jnlp">
+    <information>
+        <title>Native libs pack for ShtrihFR applet</title>
+        <vendor>Assargadon</vendor>
+        <homepage href="smallpos.ru"/>
+	<offline-allowed/>
+    </information>
+<security>
+	<all-permissions/>
+</security>
+
+<resources os="Linux" arch="i386">
+	<nativelib href="lib/librxtxSerial-i386.so.jar"/>
+</resources>
+<resources os="Windows">
+	<nativelib href="lib/librxtxSerial-i386.dll.jar"/>
+</resources>
+
+<component-desc />
+</jnlp>

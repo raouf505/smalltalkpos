@@ -12,7 +12,7 @@ Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfMa
 
 (ConfigurationOfMagritte project version: '1.2.1.4.1') load.
 
-"Install Magritte-Seaside-lr.316 from Magritte-Tests on source.lukas-renggli-ch/magritte".
+"Install Magritte-Seaside-lr.316 from Magritte-Tests on source.lukas-renggli.ch/magritte".
 
 "Install SmallPOS from the squeaksource repo".
 

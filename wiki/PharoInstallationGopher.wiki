@@ -1,6 +1,6 @@
 #summary Установка SmallPOS в Pharo через Gopher
 
-Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfGlorpDBX';    load.
+`Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfGlorpDBX';    load.
 
 (ConfigurationOfGlorpDBX project version: '1.2') load: 'All with PostgreSQL native'.
 
@@ -18,7 +18,7 @@ Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfMa
 
 VzorSession dbServer: nil.
 
-SmallPOSInterface initRoot: Menu session:VzorSession.
+SmallPOSInterface initRoot: Menu session:VzorSession.`
 
 =ADDITIONAL STEPS UNDETECTED BY ARDUINO=
 

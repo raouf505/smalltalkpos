@@ -14,7 +14,7 @@ Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfMa
 
 "Install Magritte-Seaside-lr.316 from Magritte-Tests on http://source.lukas-renggli.ch/magritte.html".
 
-"Install SmallPOS from the squeaksource repo".
+"Install SmallPOS from http://www.squeaksource.com/SmallPOS.html".
 
 VzorSession dbServer: nil.
 

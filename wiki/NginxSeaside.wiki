@@ -12,20 +12,20 @@ WAKomEncoded startOn: 8080
 }}}
   </li>
 
-  <li> Файлы библиотек, используемых в приложении, должны находиться по адресу */.../path-to-pharo-image/seaside/files/*. Чтобы выгрузить файлы библиотек из образа, необходимо выполнить:
+  <li> Файлы библиотек, используемых в приложении, должны находиться по адресу */full-path-to-pharo-image/seaside/files/*. Чтобы выгрузить файлы библиотек из образа, необходимо выполнить:
 
 {{{
-mkdir -p /.../path-to-pharo-image/seaside/files/
+mkdir -p /full-path-to-pharo-image/seaside/files/
 }}}
 
 {{{
-FileDirectory setDefaultDirectory: '/.../path-to-pharo-image/seaside/files/'.
+FileDirectory setDefaultDirectory: '/full-path-to-pharo-image/seaside/files/'.
 
 (WAFileLibrary allSubclasses select: [:each | 
     each name beginsWithAnyOf: #('SP' 'SU' 'WA'  'PR' 'JQ')])
     do: [:each | each deployFiles].
 
-FileDirectory setDefaultDirectory: '/.../path-to-pharo-image/'.
+FileDirectory setDefaultDirectory: '/full-path-to-pharo-image/'.
 }}}
 
   </li>
@@ -102,15 +102,15 @@ server
                 	  '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 
 	#Полные пути к логам. Если файлов нет, то они будут созданы автоматически.
-	access_log  /path-to-access-log/access.log  gzip;
-	error_log /path-to-error-log/error.log;
+	access_log  /full-path-to-access-log/access.log  gzip;
+	error_log /full-path-to-error-log/error.log;
 
 	#В качестве аргумента для server_name может выступать как имя домена, так и ip-адрес.
 	server_name www.yourdomain.ru yourdomain.ru;
 	listen 80;
 
 	#Полный путь к образу Pharo
-	root /path-to-pharo-image/;
+	root /full-path-to-pharo-image/;
 
 	rewrite ^/$ /seaside/SmallPOS;
 	proxy_redirect /seaside/SmallPOS /;

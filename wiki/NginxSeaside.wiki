@@ -109,7 +109,7 @@ server
 	server_name www.yourdomain.ru yourdomain.ru;
 	listen 80;
 
-	#Полный путь к файлу образа pharo
+	#Полный путь к образу pharo
 	root /path-to-pharo-image/;
 
 	rewrite ^/$ /seaside/SmallPOS;

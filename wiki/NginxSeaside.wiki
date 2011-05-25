@@ -101,12 +101,15 @@ server
 			  '"$request" $status $bytes_sent '
                 	  '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 
-	access_log  /path-to-access-log/  gzip;
-	error_log /path-to-error-log/;
+	#Полные пути к логам. Если файлов нет, то они будут созданы автоматически.
+	access_log  /path-to-access-log/access.log  gzip;
+	error_log /path-to-error-log/error.log;
 
+	#В качестве аргумента для server_name может выступать как имя домена, так и ip-адрес.
 	server_name www.yourdomain.ru yourdomain.ru;
 	listen 80;
-  
+
+	#Полный путь к файлу образа pharo
 	root /path-to-pharo-image/;
 
 	rewrite ^/$ /seaside/SmallPOS;

@@ -88,26 +88,26 @@ http {
 server
 {
 
-  log_format  gzip  '$remote_addr - $remote_user [$time_local] '
-                    '"$request" $status $bytes_sent '
-                    '"$http_referer" "$http_user_agent" "$gzip_ratio"';
+	log_format  gzip  '$remote_addr - $remote_user [$time_local] '
+		'"$request" $status $bytes_sent '
+                '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 
-  access_log  /path/to/access/log  gzip;
-  error_log /path/to/error/log;
+	access_log  /path/to/access/log  gzip;
+	error_log /path/to/error/log;
 
-  server_name localhost;
-  listen 80;
+	server_name http://yourdomain.ru;
+	listen 80;
   
-  root /path/to/pharo/image/;
+	root /path/to/pharo/image/;
 
-  rewrite ^/$ /seaside/SmallPOS;
-  proxy_redirect /seaside/SmallPOS /;
+	rewrite ^/$ /seaside/SmallPOS;
+	proxy_redirect /seaside/SmallPOS /;
 
-  location /seaside/SmallPOS
-  {
-    proxy_pass http://127.0.0.1:8080;
-    proxy_set_header Host $host;
-  }
+	location /seaside/SmallPOS
+	{
+		proxy_pass http://127.0.0.1:8080;
+		proxy_set_header Host $host;
+	}
 }
 }}}
   </li>

@@ -28,8 +28,6 @@ FileDirectory setDefaultDirectory: '/.../pharo-image-dir/seaside/files/'.
 FileDirectory setDefaultDirectory: '/.../pharo-image-dir/'.
 }}}
 
-В папке с образом появятся папки с именами типа «WADispatcherFiles», «WAStandardFiles» и т.д. Их необходимо переместить в заранее созданный путь *« ... / seaside / files / »*
-
   </li>
 
   <li> Чтобы исключить название приложения из URI, необходимо выполнить:

@@ -98,7 +98,7 @@ server
   server_name localhost;
   listen 80;
   
-  root /pharo-image-dir/seaside/files/;
+  root /path/to/pharo/image/;
 
   rewrite ^/$ /seaside/SmallPOS;
   proxy_redirect /seaside/SmallPOS /;

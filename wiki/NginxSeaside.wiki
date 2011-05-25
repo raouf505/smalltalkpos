@@ -12,20 +12,20 @@ WAKomEncoded startOn: 8080
 }}}
   </li>
 
-  <li> Файлы библиотек, используемых в приложении, должны находиться по адресу */.../pharo-image-dir/seaside/files/*. Чтобы выгрузить файлы библиотек из образа, необходимо выполнить:
+  <li> Файлы библиотек, используемых в приложении, должны находиться по адресу */.../path-to-pharo-image/seaside/files/*. Чтобы выгрузить файлы библиотек из образа, необходимо выполнить:
 
 {{{
-mkdir -p /.../pharo-image-dir/seaside/files/
+mkdir -p /.../path-to-pharo-image/seaside/files/
 }}}
 
 {{{
-FileDirectory setDefaultDirectory: '/.../pharo-image-dir/seaside/files/'.
+FileDirectory setDefaultDirectory: '/.../path-to-pharo-image/seaside/files/'.
 
 (WAFileLibrary allSubclasses select: [:each | 
     each name beginsWithAnyOf: #('SP' 'SU' 'WA'  'PR' 'JQ')])
     do: [:each | each deployFiles].
 
-FileDirectory setDefaultDirectory: '/.../pharo-image-dir/'.
+FileDirectory setDefaultDirectory: '/.../path-to-pharo-image/'.
 }}}
 
   </li>
@@ -101,13 +101,13 @@ server
 			  '"$request" $status $bytes_sent '
                 	  '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 
-	access_log  /path/to/access/log  gzip;
-	error_log /path/to/error/log;
+	access_log  /path-to-access-log/  gzip;
+	error_log /path-to-error-log/;
 
 	server_name www.yourdomain.ru yourdomain.ru;
 	listen 80;
   
-	root /path/to/pharo/image/;
+	root /path-to-pharo-image/;
 
 	rewrite ^/$ /seaside/SmallPOS;
 	proxy_redirect /seaside/SmallPOS /;

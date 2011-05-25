@@ -27,7 +27,7 @@ WAKomEncoded startOn: 8080
  (WADispatcher default entryPointAt: 'SmallPOS') preferenceAt: #serverPath put: '/'
 }}}
   </li>
-<ol>
+</ol>
 
 = Настройка Nginx =
 

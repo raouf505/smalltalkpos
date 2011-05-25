@@ -19,9 +19,13 @@ mkdir -p /.../pharo-image-dir/seaside/files/
 }}}
 
 {{{
+FileDirectory setDefaultDirectory: '/.../pharo-image-dir/seaside/files/'.
+
 (WAFileLibrary allSubclasses select: [:each | 
     each name beginsWithAnyOf: #('SP' 'SU' 'WA'  'PR' 'JQ')])
-    do: [:each | each deployFiles]
+    do: [:each | each deployFiles].
+
+FileDirectory setDefaultDirectory: '/.../pharo-image-dir/'.
 }}}
 
 В папке с образом появятся папки с именами типа «WADispatcherFiles», «WAStandardFiles» и т.д. Их необходимо переместить в заранее созданный путь *« ... / seaside / files / »*

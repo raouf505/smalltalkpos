@@ -1,0 +1,42 @@
+#summary Настройка Nginx в качестве front-end'а для Seaside.
+#labels nginx,seaside
+
+= Настройка Seaside =
+
+<ol>
+  <li> В качестве файлового веб-сервера теперь будет использоваться Nginx, поэтому необходимо перестать использовать Comanche и оставить минимум для работы с Seaside:
+
+{{{
+(HttpService services select:[:service| service portNumber=8080]) do:[:service| service stop].
+WAKomEncoded startOn: 8080
+}}}
+  </li>
+
+  <li> Файлы библиотек, используемых в приложении, должны находиться по адресу *« ... / папка с образом / seaside / files / »*. Чтобы выгрузить файлы библиотек из образа, необходимо выполнить (в папке с образом появятся папки с именами типа «WADispatcherFiles», «WAStandardFiles» и т.д. - их необходимо переместить в заранее созданный путь *« ... / seaside / files / »*):
+
+{{{
+(WAFileLibrary allSubclasses select: [:each | 
+    each name beginsWithAnyOf: #('SP' 'SU' 'WA'  'PR' 'JQ')])
+    do: [:each | each deployFiles]
+}}}
+  </li>
+
+  <li> Чтобы исключить название приложения из URI, необходимо выполнить:
+
+{{{
+ (WADispatcher default entryPointAt: 'SmallPOS') preferenceAt: #serverPath put: '/'
+}}}
+  </li>
+
+= Настройка Nginx =
+
+{{{
+sudo apt-get install nginx
+sudo sh -c "echo > /etc/nginx/sites-available/smallpos.conf"
+sudo ln -s /etc/nginx/sites-available/smallpos.conf /etc/nginx/sites-enabled/smallpos
+}}}
+
+<ol>
+  <li> Содержание */etc/nginx/nginx.conf*: </li>
+  <li> Содержание */etc/nginx/sites-available/smallpos.conf*: </li>
+</ol>

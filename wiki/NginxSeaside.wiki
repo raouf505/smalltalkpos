@@ -30,7 +30,7 @@ FileDirectory setDefaultDirectory: '/.../path-to-pharo-image/'.
 
   </li>
 
-  <li> Чтобы исключить название приложения из URI, необходимо выполнить:
+  <li> Чтобы исключить название Seaside-приложения из URI, необходимо выполнить:
 
 {{{
  (WADispatcher default entryPointAt: 'SmallPOS') preferenceAt: #serverPath put: '/'
@@ -109,7 +109,7 @@ server
 	server_name www.yourdomain.ru yourdomain.ru;
 	listen 80;
 
-	#Полный путь к образу pharo
+	#Полный путь к образу Pharo
 	root /path-to-pharo-image/;
 
 	rewrite ^/$ /seaside/SmallPOS;

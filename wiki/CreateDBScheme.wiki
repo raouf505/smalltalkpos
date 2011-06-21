@@ -1,0 +1,41 @@
+#labels postgresql,database
+Первым делом нужно создать саму базу. Для этого необходимо выполнить (Ubuntu):
+{{{
+su postgres
+createdb 'dbname' (название базы набрать БЕЗ апострофов)
+}}}
+
+Далее, для создания таблиц и зависимостей необходимо выполнить следующий код:
+{{{
+
+	| login accessor platform glorpSession |
+
+	platform := PostgreSQLPlatform new.
+	
+	platform characterEncoding: #'utf-8'.
+	platform functions at: #abs ifAbsentPut: [PrefixFunction named: 'ABS'].
+	(platform functions at: #toChar: ifAbsentPut:[PrefixFunction named: 'TO_CHAR']) type: platform text.
+	
+        "Вместо postgres, password, 127.0.0.1 и dongarant
+	подставьте нужное имя пользователя, пароль, адрес 
+	сервера и название созданной на предыдущем шаге базы"
+
+	login := Login new database: platform;
+	username: 'postgres';
+	password: 'password';
+	connectString: '127.0.0.1_dongarant'.
+
+	accessor := DatabaseAccessor forLogin: login.
+	accessor login.
+
+	"Замените SmallPOSGlorpSession и DonGarantDescriptor
+	на нужный класс GLORP-сессии и дескриптор нужного проекта"
+
+	glorpSession := SmallPOSGlorpSession new.
+	glorpSession system: (DonGarantDescriptor forPlatform: login database).
+	glorpSession accessor: accessor.
+	glorpSession errorAction: [:first :second :third| self errorFirst: first second: second third: third].
+	glorpSession recreateTables.
+	
+	accessor logout.
+}}}

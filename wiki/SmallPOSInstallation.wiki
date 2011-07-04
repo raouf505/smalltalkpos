@@ -21,7 +21,7 @@
   * `cd ...\Postgres\bin\`;
   * `createdb.exe -U postgres dbname`.
  # Восстановить базу из дампа, выполнив:
-  * `pg_restore.exe -U postgres -d dbname ...\\path\\to\\dump\\file`.
+  * `pg_restore.exe -U postgres -d dbname ...\path\to\dump\file`.
  # Скопировать и запустить образ со SmallPOS'ом.
  # В образе:
   * Старт Comanche: `initRoot:session:` (я вот не помню, будет ли достаточно сделать это лишь однажды для нужного SmallPOS-подпроекта или надо делать всякий раз при переносе на другой компьютер).

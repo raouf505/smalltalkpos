@@ -39,8 +39,7 @@ _`YourProjectSessionClass` - это подкласс `SmallPOSSeasideSession`, �
 	accessor := DatabaseAccessor forLogin: login.
 	accessor login.
 
-	"Замените SmallPOSGlorpSession и DonGarantDescriptor
-	на нужный класс GLORP-сессии и дескриптор нужного проекта"
+	"Замените DonGarantDescriptor на дескриптор нужного проекта"
 
 	glorpSession := SmallPOSGlorpSession new.
 	glorpSession system: (DonGarantDescriptor forPlatform: login database).

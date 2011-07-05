@@ -1,51 +1,12 @@
-#summary Создание схемы базы данных
+#summary Создание схемы базы данных из образа
 #labels postgresql
 
-Первым делом нужно создать саму базу. Для этого необходимо выполнить (Ubuntu):
-{{{
-su postgres
-createdb 'dbname' (название базы набрать БЕЗ апострофов)
-}}}
+Предполагается, что на компьютере установлена PostgreSQL версии не ниже *8.4.8-1*.
 
-----
+ # Создать базу данных (заменить `dbname` на имя вашей базы):
+  * *Windows*: `createdb.exe -U postgres dbname`
+  * *Ubuntu*: `su postgres && createdb dbname`
+ # Запустить образ и выполнить следующий код (заменить `YourProjectSessionClass` на нужный подкласс класса `SmallPOSSeasideSession`):
+  * `ProjectSessionClass new glorpSession recreateTables`
 
-_Приведенный далее код, конечно, полезен, но в рамках SmallPOS'а создать схему можно куда проще:_
-{{{
-YourProjectSessionClass new glorpSession recreateTables
-}}}
-_`YourProjectSessionClass` - это подкласс `SmallPOSSeasideSession`, созданный специально для SmallPOS-подпроекта._
-----
-
-Далее, для создания таблиц и зависимостей необходимо выполнить следующий код:
-{{{
-
-	| login accessor platform glorpSession |
-
-	platform := PostgreSQLPlatform new.
-	
-	platform characterEncoding: #'utf-8'.
-	platform functions at: #abs ifAbsentPut: [PrefixFunction named: 'ABS'].
-	(platform functions at: #toChar: ifAbsentPut:[PrefixFunction named: 'TO_CHAR']) type: platform text.
-	
-        "Вместо postgres, password, 127.0.0.1 и dongarant
-	подставьте нужное имя пользователя, пароль, адрес 
-	сервера и название созданной на предыдущем шаге базы"
-
-	login := Login new database: platform;
-	username: 'postgres';
-	password: 'password';
-	connectString: '127.0.0.1_dongarant'.
-
-	accessor := DatabaseAccessor forLogin: login.
-	accessor login.
-
-	"Замените DonGarantDescriptor на дескриптор нужного проекта"
-
-	glorpSession := SmallPOSGlorpSession new.
-	glorpSession system: (DonGarantDescriptor forPlatform: login database).
-	glorpSession accessor: accessor.
-	glorpSession errorAction: [:first :second :third| self errorFirst: first second: second third: third].
-	glorpSession recreateTables.
-	
-	accessor logout.
-}}}
+Если все прошло без ошибок, то будет создана база данных с именем `dbname`, а также все таблицы и связи.

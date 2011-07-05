@@ -6,7 +6,7 @@
  # Создать базу данных (заменить `dbname` на имя вашей базы):
   * *Windows*: `createdb.exe -U postgres dbname`
   * *Ubuntu*: `su postgres && createdb dbname`
- # Запустить образ и выполнить следующий код (заменить `YourProjectSessionClass` на нужный подкласс класса `SmallPOSSeasideSession`):
+ # Запустить образ и выполнить следующий код (заменить `ProjectSessionClass` на нужный подкласс класса `SmallPOSSeasideSession`):
   * `ProjectSessionClass new glorpSession recreateTables`
 
 Если все прошло без ошибок, то будет создана база данных с именем `dbname`, а также все таблицы и связи.

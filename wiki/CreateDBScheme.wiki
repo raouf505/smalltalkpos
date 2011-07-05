@@ -5,6 +5,15 @@ su postgres
 createdb 'dbname' (название базы набрать БЕЗ апострофов)
 }}}
 
+----
+
+_Приведенный ниже код, конечно, полезен, но в рамках SmallPOS'а создать схему можно куда проще:_
+{{{
+YourProjectSessionClass new glorpSession recreateTables
+}}}
+_`YourProjectSessionClass` - это подкласс `SmallPOSSeasideSession`, созданный специально для SmallPOS-подпроекта._
+----
+
 Далее, для создания таблиц и зависимостей необходимо выполнить следующий код:
 {{{
 

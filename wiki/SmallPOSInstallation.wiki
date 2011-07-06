@@ -33,7 +33,27 @@
 == Перенос на другой компьютер ==
 == Бэкап по расписанию ==
 
-at \?
+ # Создать файл `pgpass.conf` и поместить его в защищенную директорию, доступную только только суперпользователю. О том, какой формат должен иметь данный файл можно почитать [http://www.postgresql.org/docs/9.0/static/libpq-pgpass.html тут]. Скорее всего этот файл появится после установки PostgreSQL в папке `...\AppData\Roaming\postgresql\`, но все равно надо проверить.
+ # Создать `bat-`файл, содержащий следующий код:
+{{{
+# Если в пути к файлу встречается пробел, то путь необходимо 
+# указать в двойных кавычках. В противном случае кавычки не нужны. 
+# Заменить <pgpass.conf> на полный путь к файлу pgpass.conf.
+# Заменить <pg_dump.exe> на полный путь к утилите pg_dump.
+# Заменить <backup_folder> на полный путь к папке, в которой будут храниться бэкапы.
+# Заменить dbname на название вашей базы данных.
+
+@echo off
+  SET PGPASSFILE=<pgpass.conf>
+
+  For /f "tokens=1-3 delims=/." %%a in ('date /t') do (set mydate=%%a_%%b_%%c)
+  set mydate=%mydate: =%
+
+  set BACKUP_FILE=%mydate%.backup
+
+  <pg_dump.exe> --host localhost --port 5432 --username postgres --format custom --blobs --no-password --file <backup_folder>\dbname_%BACKUP_FILE% dbname
+}}}
+ # 
 
 ----
 

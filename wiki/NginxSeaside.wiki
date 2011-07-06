@@ -1,4 +1,4 @@
-#summary Настройка Nginx в качестве front-end'а для Seaside.
+#summary Настройка Nginx в качестве front-end'а для Seaside (Ubuntu).
 #labels nginx,seaside
 
 = Настройка Seaside =

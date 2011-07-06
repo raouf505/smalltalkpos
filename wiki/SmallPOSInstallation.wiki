@@ -1,4 +1,4 @@
-#summary Как установить SmallPOS на компьютер (Windows)
+#summary Как установить SmallPOS (Windows)
 #labels installation,postgresql
 
 = Ограничения =

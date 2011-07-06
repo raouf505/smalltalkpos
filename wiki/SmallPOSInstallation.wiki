@@ -15,12 +15,12 @@
 
 = Установка =
 
- # Установить PostgreSQL. В процессе установки все параметры оставить по умолчанию. В качестве пароля суперпользователя ввести '*password*' (без кавычек).
+ # Установить PostgreSQL. В процессе установки все параметры оставить по умолчанию. В качестве пароля суперпользователя ввести "*password*" (без кавычек).
  # Открыть консоль и перейти в папку `C:\Program Files\PostgreSQL\8.4\bin`. Все консольные утилиты, используемые ниже, находятся в этой папке.
  # Создать базу данных (заменить `dbname` на имя вашей базы):
   * `createdb.exe -U postgres dbname`
  # Восстановить базу из дампа (путь указать в кавычках, если он содержит пробелы):
-  * `pg_restore.exe -U postgres -d dbname 'путь к дампу'`
+  * `pg_restore.exe -U postgres -d dbname "путь к дампу"`
  # Скопировать и запустить образ со SmallPOS'ом.
  # В образе:
   * Выполнить код (заменив `ProjectRootRenderer` и `ProjectSessionClass` на нужные классы): `SmallPOSInterface initRoot: ProjectRootRenderer session: ProjectSessionClass`.
@@ -66,7 +66,7 @@
   <pg_dump.exe> --host localhost --port 5432 --username postgres --format custom --blobs --no-password --file <backup_folder>\dbname_%BACKUP_FILE% dbname
 }}}
  # Выполнить в консоли (путь указать в кавычках, если он содержит пробелы):
-  * `at 01:00 /every:M,T,W,Th,F 'полный путь к bat-файлу'`
+  * `at 01:00 /every:M,T,W,Th,F "полный путь к bat-файлу"`
 
 Таким образом, каждую неделю с понедельника по пятницу в час ночи будет выполняться наш скрипт. В результате будут появляться бэкапы с названиями типа *`mybase_05_09_2011`*.
 

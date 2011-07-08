@@ -5,7 +5,9 @@
 
  # Создать базу данных (заменить `dbname` на имя вашей базы):
   * *Windows*: `createdb.exe -U postgres dbname`
-  * *Ubuntu*: `su postgres && createdb dbname`
+  * *Ubuntu*:
+   # `su postgres`
+   # `createdb dbname`
  # Запустить образ и выполнить следующий код (заменить `ProjectSessionClass` на нужный подкласс класса `SmallPOSSeasideSession`):
   * `ProjectSessionClass new glorpSession recreateTables`
 

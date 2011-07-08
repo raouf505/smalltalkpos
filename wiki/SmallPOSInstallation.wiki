@@ -130,7 +130,7 @@ World menu -> Workspace -> скопировать код в появившеес
 
 == Как обновить шрифты ==
 
-World menu -> System -> Settings -> в поле ввода 'Search for' ввести font и нажать Enter -> нажать кнопку Launch напротив 'Install bitmap DejaVu fonts' -> нажать кнопку Launch напротив 'Update fonts from system'
+World menu -> System -> Settings -> в поле ввода 'Search for' ввести font и нажать Enter -> нажать кнопку Launch напротив 'Install bitmap Dejavu fonts' -> нажать кнопку Launch напротив 'Update fonts from system'
 
 == Как сохранить образ ==
 

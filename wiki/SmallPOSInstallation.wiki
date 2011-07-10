@@ -86,7 +86,11 @@ World menu -> Workspace -> скопировать код в появившеес
 
 == Как обновить шрифты ==
 
-World menu -> System -> Settings -> в поле ввода 'Search for' ввести font и нажать Enter -> нажать кнопку Launch напротив 'Install bitmap Dejavu fonts' -> нажать кнопку Launch напротив 'Update fonts from system'
+Обновление шрифтов необходимо в том случае, когда вместо русскоязычного текста отображаются вопросики.
+
+World menu -> System -> Settings -> Appearance -> Standard fonts -> нажать кнопку Launch напротив 'Install bitmap Dejavu fonts' -> нажать кнопку Launch напротив 'Update fonts from system'.
+
+World menu -> Workspace -> попробовать напечатать русскоязычный текст. Если вместо букв все равно продолжают отображаться вопросики, то в настройках, в Standard fonts для Default выбрать шрифт Arial. Заново открыть Workspace и проверить.
 
 == Как сохранить образ ==
 

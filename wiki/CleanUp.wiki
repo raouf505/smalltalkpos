@@ -1,5 +1,5 @@
 #summary How to cleunup image from sessions and other staff
-
+{{{
 "kill seaside processes."
 WAKom stop.
 
@@ -20,3 +20,4 @@ WARegistry clearAllHandlers.
 
 "default garbage collection - do this several times just to be sure"
 Smalltalk garbageCollect.
+}}}

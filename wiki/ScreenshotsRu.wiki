@@ -1,4 +1,5 @@
 #summary Some screenshots of actually working SmallPOS system. On russian.
+#labels Featured
 
 = Introduction =
 
@@ -30,8 +31,6 @@ Add your content here.
 ">
 
 <a href="http://support.wzrd.ru/mantis/smallpos/ReportTurnoverAndRemains.png"><img width=80% src="http://support.wzrd.ru/mantis/smallpos/ReportTurnoverAndRemains.png">
-
-
 
 
 

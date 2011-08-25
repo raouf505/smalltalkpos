@@ -10,4 +10,4 @@ Some object *SPLocale* should be defined (or maybe some existing may be used), w
 
 I think, some *SPTranslation* object should be defined, with translation of strings like "Save", "Exit", "Generate" and so on. It should hold language ISO code aswell. It should be separated from *SPLocale* to have a possibility to make several translation versions for one language (for example, it may be "Generate" or "Generate report" or "Submit").
 
-SPSession should hold one instance of SPLocale and one instance of SPTranslation. And every component should/may ask sesion for necessary locale info.
+SPSession should hold one instance of *SPLocale* and one instance of *SPTranslation*. And every component should/may ask sesion for necessary locale info.

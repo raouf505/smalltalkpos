@@ -22,3 +22,9 @@ and, maybe, special separate
   * turnover balance report
 and, maybe again, special separate
   * goods cost report (maybe it will be three different reports: for FIFO method, for average method and for last bought price method)
+
+=Updating to contemporary technologies=
+==Port to Seaside 3.0==
+For static files rules see http://samadhiweb.com/blog/2011.07.10.seaside.comanche.staticfiles.html
+==Port to DBXTalk version of GLORP==
+==Make a Gofer ruleset(s)==

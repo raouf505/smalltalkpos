@@ -25,6 +25,8 @@ and, maybe again, special separate
 
 =Updating to contemporary technologies=
 ==Port to Seaside 3.0==
-For static files rules see http://samadhiweb.com/blog/2011.07.10.seaside.comanche.staticfiles.html
+For static files hosting via comanche with seaside3 (which I stacked in) see http://samadhiweb.com/blog/2011.07.10.seaside.comanche.staticfiles.html
 ==Port to DBXTalk version of GLORP==
+They ported GLORP from VW (I don't know if it lastone or not), and it works with MySQL aswell. See http://lists.gforge.inria.fr/pipermail/pharo-project/2011-June/049978.html for example
 ==Make a Gofer ruleset(s)==
+To make new images production fast and easy.

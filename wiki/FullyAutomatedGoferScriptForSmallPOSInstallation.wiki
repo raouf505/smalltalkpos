@@ -13,4 +13,8 @@ Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfMa
 (Gofer new)  squeaksource3: 'SmallPOS';	package: 'MoneyToWordsRus'; load.
 	
 (Gofer new)  squeaksource: 'jQuery';	package: 'SUExtensions'; load.
+
+(Gofer new) url: 'http://source.lukas-renggli.ch/unsorted'; package: 'RFB'; load.
+(Gofer new) squeaksource3: 'SASExtensions'; package: 'pharoPatch'; load.
+(Gofer new) squeaksource3: 'SASExtensions'; package: 'rfb-patch'; load.
 }}}

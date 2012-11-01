@@ -18,3 +18,11 @@ Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfMa
 (Gofer new) squeaksource3: 'SASExtensions'; package: 'pharoPatch'; load.
 (Gofer new) squeaksource3: 'SASExtensions'; package: 'rfb-patch'; load.
 }}}
+
+=====================
+
+{{{
+"To init VNC-server"
+RFBServer start.
+RFBServer server setFullPassword:'123'.
+}}}

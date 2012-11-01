@@ -1,3 +1,4 @@
+{{{
 Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfGlorpDBX';    load.
 (ConfigurationOfGlorpDBX project latestVersion) load: 'GlorpDriverPostgreSQL'.
 
@@ -12,3 +13,4 @@ Gofer new    squeaksource: 'MetacelloRepository';    package: 'ConfigurationOfMa
 (Gofer new)  squeaksource3: 'SmallPOS';	package: 'MoneyToWordsRus'; load.
 	
 (Gofer new)  squeaksource: 'jQuery';	package: 'SUExtensions'; load.
+}}}
